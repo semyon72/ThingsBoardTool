@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\TsKvLatest" table="ts_kv_latest">
+    <unique-constraints>
+      <unique-constraint name="ts_kv_latest_unq_key" columns="entity_type,entity_id,key"/>
+    </unique-constraints>
+    <id name="entityType" type="string" column="entity_type" length="255"/>
+    <id name="entityId" type="string" column="entity_id" length="31"/>
+    <id name="key" type="string" column="key" length="255"/>
+    <field name="ts" type="bigint" column="ts" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="boolV" type="boolean" column="bool_v" nullable="true"/>
+    <field name="strV" type="string" column="str_v" length="10000000" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="longV" type="bigint" column="long_v" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="dblV" type="float" column="dbl_v" precision="10" scale="0" nullable="true"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,97 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Rule
+ *
+ * @ORM\Table(name="rule")
+ * @ORM\Entity
+ */
+class Rule
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="action", type="string", nullable=true)
+     */
+    private $action;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="additional_info", type="string", nullable=true)
+     */
+    private $additionalInfo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="filters", type="string", nullable=true)
+     */
+    private $filters;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="plugin_token", type="string", length=255, nullable=true)
+     */
+    private $pluginToken;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="processor", type="string", nullable=true)
+     */
+    private $processor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="search_text", type="string", length=255, nullable=true)
+     */
+    private $searchText;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="state", type="string", length=255, nullable=true)
+     */
+    private $state;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tenant_id", type="string", length=31, nullable=true)
+     */
+    private $tenantId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="weight", type="integer", nullable=true)
+     */
+    private $weight;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id", type="string", length=31)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="rule_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+
+}
+

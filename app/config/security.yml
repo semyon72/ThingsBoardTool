@@ -1,0 +1,46 @@
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html
+security:
+
+    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    providers:
+        in_memory:
+            memory: ~
+
+        device_keeper_owner:
+            entity:
+                class: DeviceKeeperBundle\Entity\Owner
+                property: description
+                manager_name: house_keeper_devicekeeper_data_mysql
+
+    encoders:
+        DeviceKeeperBundle\Entity\Owner: plaintext
+
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        device_keeper:
+            pattern: ^/dk
+            http_basic:
+                provider: device_keeper_owner
+            #form_login: ~
+
+
+        main:
+            anonymous: ~
+            # activate different ways to authenticate
+
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+            #http_basic: ~
+
+            # https://symfony.com/doc/current/security/form_login_setup.html
+            #form_login: ~
+
+    access_control:
+        - { path: ^/dk, roles: ROLE_DEVICE_KEEPER_USER }
+        - { path: ^/dk/admin, roles: ROLE_ADMIN }
+        - { path: ^/dk/admin1, roles: ROLE_ADMIN }

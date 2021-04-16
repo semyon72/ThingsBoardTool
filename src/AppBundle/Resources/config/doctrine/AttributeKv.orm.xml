@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\AttributeKv" table="attribute_kv">
+    <unique-constraints>
+      <unique-constraint name="attribute_kv_unq_key" columns="entity_type,entity_id,attribute_type,attribute_key"/>
+    </unique-constraints>
+    <id name="entityType" type="string" column="entity_type" length="255"/>
+    <id name="entityId" type="string" column="entity_id" length="31"/>
+    <id name="attributeType" type="string" column="attribute_type" length="255"/>
+    <id name="attributeKey" type="string" column="attribute_key" length="255"/>
+    <field name="boolV" type="boolean" column="bool_v" nullable="true"/>
+    <field name="strV" type="string" column="str_v" length="10000000" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="longV" type="bigint" column="long_v" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="dblV" type="float" column="dbl_v" precision="10" scale="0" nullable="true"/>
+    <field name="lastUpdateTs" type="bigint" column="last_update_ts" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

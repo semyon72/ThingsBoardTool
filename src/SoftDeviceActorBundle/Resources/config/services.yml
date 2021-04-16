@@ -1,0 +1,18 @@
+services:
+#    soft_device_actor.example:
+#        class: SoftDeviceActorBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+
+
+# Doctrine Configuration
+doctrine:
+    orm:
+        auto_generate_proxy_classes: '%kernel.debug%'
+        entity_managers:
+            house_keeper_softdeviceactor_data_mysql:
+                naming_strategy: doctrine.orm.naming_strategy.underscore
+                connection: house_keeper_telemetry_data_mysql_conn
+                mappings:
+                    SoftDeviceActorBundle:
+                        type: annotation

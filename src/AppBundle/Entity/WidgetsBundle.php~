@@ -1,0 +1,55 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * WidgetsBundle
+ *
+ * @ORM\Table(name="widgets_bundle")
+ * @ORM\Entity
+ */
+class WidgetsBundle
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="alias", type="string", length=255, nullable=true)
+     */
+    private $alias;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="search_text", type="string", length=255, nullable=true)
+     */
+    private $searchText;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tenant_id", type="string", length=31, nullable=true)
+     */
+    private $tenantId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id", type="string", length=31)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="widgets_bundle_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+
+}
+

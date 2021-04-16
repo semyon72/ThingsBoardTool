@@ -1,0 +1,88 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * AttributeKv
+ *
+ * @ORM\Table(name="attribute_kv", uniqueConstraints={@ORM\UniqueConstraint(name="attribute_kv_unq_key", columns={"entity_type", "entity_id", "attribute_type", "attribute_key"})})
+ * @ORM\Entity
+ */
+class AttributeKv
+{
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="bool_v", type="boolean", nullable=true)
+     */
+    private $boolV;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="str_v", type="string", length=10000000, nullable=true)
+     */
+    private $strV;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="long_v", type="bigint", nullable=true)
+     */
+    private $longV;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="dbl_v", type="float", precision=10, scale=0, nullable=true)
+     */
+    private $dblV;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="last_update_ts", type="bigint", nullable=true)
+     */
+    private $lastUpdateTs;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="entity_type", type="string", length=255)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $entityType;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="entity_id", type="string", length=31)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $entityId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="attribute_type", type="string", length=255)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $attributeType;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="attribute_key", type="string", length=255)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $attributeKey;
+
+
+}
+

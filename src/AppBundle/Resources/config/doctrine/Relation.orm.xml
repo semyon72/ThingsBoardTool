@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Relation" table="relation">
+    <unique-constraints>
+      <unique-constraint name="relation_unq_key" columns="from_id,from_type,relation_type_group,relation_type,to_id,to_type"/>
+    </unique-constraints>
+    <id name="fromId" type="string" column="from_id" length="31"/>
+    <id name="fromType" type="string" column="from_type" length="255"/>
+    <id name="relationTypeGroup" type="string" column="relation_type_group" length="255"/>
+    <id name="relationType" type="string" column="relation_type" length="255"/>
+    <id name="toId" type="string" column="to_id" length="31"/>
+    <id name="toType" type="string" column="to_type" length="255"/>
+    <field name="additionalInfo" type="string" column="additional_info" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

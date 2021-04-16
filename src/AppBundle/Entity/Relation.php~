@@ -1,0 +1,78 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Relation
+ *
+ * @ORM\Table(name="relation", uniqueConstraints={@ORM\UniqueConstraint(name="relation_unq_key", columns={"from_id", "from_type", "relation_type_group", "relation_type", "to_id", "to_type"})})
+ * @ORM\Entity
+ */
+class Relation
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="additional_info", type="string", nullable=true)
+     */
+    private $additionalInfo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="from_id", type="string", length=31)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $fromId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="from_type", type="string", length=255)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $fromType;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="relation_type_group", type="string", length=255)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $relationTypeGroup;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="relation_type", type="string", length=255)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $relationType;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="to_id", type="string", length=31)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $toId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="to_type", type="string", length=255)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $toType;
+
+
+}
+

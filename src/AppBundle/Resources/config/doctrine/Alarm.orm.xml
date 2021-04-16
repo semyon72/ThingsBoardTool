@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Alarm" table="alarm">
+    <id name="id" type="string" column="id" length="31">
+      <generator strategy="SEQUENCE"/>
+      <sequence-generator sequence-name="alarm_id_seq" allocation-size="1" initial-value="1"/>
+    </id>
+    <field name="ackTs" type="bigint" column="ack_ts" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="clearTs" type="bigint" column="clear_ts" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="additionalInfo" type="string" column="additional_info" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="endTs" type="bigint" column="end_ts" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="originatorId" type="string" column="originator_id" length="31" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="originatorType" type="integer" column="originator_type" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="propagate" type="boolean" column="propagate" nullable="true"/>
+    <field name="severity" type="string" column="severity" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="startTs" type="bigint" column="start_ts" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="status" type="string" column="status" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="tenantId" type="string" column="tenant_id" length="31" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="type" type="string" column="type" length="255" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+  </entity>
+</doctrine-mapping>

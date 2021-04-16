@@ -1,0 +1,62 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * WidgetType
+ *
+ * @ORM\Table(name="widget_type")
+ * @ORM\Entity
+ */
+class WidgetType
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="alias", type="string", length=255, nullable=true)
+     */
+    private $alias;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="bundle_alias", type="string", length=255, nullable=true)
+     */
+    private $bundleAlias;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descriptor", type="string", length=1000000, nullable=true)
+     */
+    private $descriptor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tenant_id", type="string", length=31, nullable=true)
+     */
+    private $tenantId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id", type="string", length=31)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="widget_type_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+
+}
+

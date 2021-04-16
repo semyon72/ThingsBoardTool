@@ -1,0 +1,111 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Alarm
+ *
+ * @ORM\Table(name="alarm")
+ * @ORM\Entity
+ */
+class Alarm
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ack_ts", type="bigint", nullable=true)
+     */
+    private $ackTs;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="clear_ts", type="bigint", nullable=true)
+     */
+    private $clearTs;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="additional_info", type="string", nullable=true)
+     */
+    private $additionalInfo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="end_ts", type="bigint", nullable=true)
+     */
+    private $endTs;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="originator_id", type="string", length=31, nullable=true)
+     */
+    private $originatorId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="originator_type", type="integer", nullable=true)
+     */
+    private $originatorType;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="propagate", type="boolean", nullable=true)
+     */
+    private $propagate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="severity", type="string", length=255, nullable=true)
+     */
+    private $severity;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="start_ts", type="bigint", nullable=true)
+     */
+    private $startTs;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="string", length=255, nullable=true)
+     */
+    private $status;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tenant_id", type="string", length=31, nullable=true)
+     */
+    private $tenantId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255, nullable=true)
+     */
+    private $type;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id", type="string", length=31)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="alarm_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+
+}
+

@@ -1,0 +1,7 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host_things_board: 127.0.0.1
+    database_port_things_board: 5432
+    database_name_things_board: thingsboard
+    database_user_things_board: postgres
+    database_password_things_board: 12qwaszx

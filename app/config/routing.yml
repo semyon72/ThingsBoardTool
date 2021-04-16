@@ -1,0 +1,18 @@
+device_keeper:
+    resource: "@DeviceKeeperBundle/Controller/"
+    type:     annotation
+    prefix:   /dk
+
+soft_device_actor:
+    resource: "@SoftDeviceActorBundle/Controller/"
+    type:     annotation
+    prefix:   /tb/sda
+
+tb_stat:
+    resource: "@TBStatBundle/Controller/"
+    type:     annotation
+    prefix:   /tb
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

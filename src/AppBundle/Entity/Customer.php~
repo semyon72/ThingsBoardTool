@@ -1,0 +1,111 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Customer
+ *
+ * @ORM\Table(name="customer")
+ * @ORM\Entity
+ */
+class Customer
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="additional_info", type="string", nullable=true)
+     */
+    private $additionalInfo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", nullable=true)
+     */
+    private $address;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address2", type="string", nullable=true)
+     */
+    private $address2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string", length=255, nullable=true)
+     */
+    private $city;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="country", type="string", length=255, nullable=true)
+     */
+    private $country;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone", type="string", length=255, nullable=true)
+     */
+    private $phone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="search_text", type="string", length=255, nullable=true)
+     */
+    private $searchText;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="state", type="string", length=255, nullable=true)
+     */
+    private $state;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tenant_id", type="string", length=31, nullable=true)
+     */
+    private $tenantId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="zip", type="string", length=255, nullable=true)
+     */
+    private $zip;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id", type="string", length=31)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="customer_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+
+}
+

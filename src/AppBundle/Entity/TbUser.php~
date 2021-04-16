@@ -1,0 +1,83 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * TbUser
+ *
+ * @ORM\Table(name="tb_user", uniqueConstraints={@ORM\UniqueConstraint(name="tb_user_email_key", columns={"email"})})
+ * @ORM\Entity
+ */
+class TbUser
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="additional_info", type="string", nullable=true)
+     */
+    private $additionalInfo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="authority", type="string", length=255, nullable=true)
+     */
+    private $authority;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="customer_id", type="string", length=31, nullable=true)
+     */
+    private $customerId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="first_name", type="string", length=255, nullable=true)
+     */
+    private $firstName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="last_name", type="string", length=255, nullable=true)
+     */
+    private $lastName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="search_text", type="string", length=255, nullable=true)
+     */
+    private $searchText;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tenant_id", type="string", length=31, nullable=true)
+     */
+    private $tenantId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id", type="string", length=31)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="tb_user_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+
+}
+

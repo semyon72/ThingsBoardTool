@@ -1,0 +1,95 @@
+{% extends "@SoftDeviceActor/baseLayout.html.twig" %}
+{% block content %}
+    
+    {{ dump(devices) }}
+    
+    <style>
+        table, th, td {border-width: 1px; border-style: solid; border-collapse: collapse; }
+        th, td { padding: 4px; vertical-align: top}
+    </style>
+    
+    <h3>Current list of active virtual things board devices that have ready for processing.</h3>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>ThingsBoard device Identifier</th>
+            <th>Value of Device</th>
+            <th>PHP Class name for forecast</th>
+            <th>Date of creation</th>
+            <th>Date begin of work</th>
+            <th>Date end of work</th>
+        </tr>
+        </thead>
+        <tbody>
+    {% for device in devices %}
+        <tr>
+            <td>{{ device.getId }}</td>
+            <td>{{ device.getTbId }}</td>
+            <td>{{ device.getValueName }}</td>
+            <td>{{ device.getPhpclassnameForecast }}</td>
+            <td>{{ device.getDateCreated|date('Y-m-d H:i:s') }}</td>
+            <td>{{ device.getDateBegin|date('Y-m-d H:i:s') }}</td>
+            <td>{{ device.getDateEnd is null ? 'is Empty' : device.getDateEnd|date('Y-m-d H:i:s') }}</td>
+        </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+    
+    {{ dump(activeTasks) }}
+        
+    <h3>Current list of active scheduled task that have ready for processing.</h3>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>dayTs</th>
+            <th>ThingsBoard device Identifier</th>
+            <th>Value of Device</th>
+            <th>Max value</th>
+            <th>Value that used</th>
+            <th>Schedule</th>
+        </tr>
+        </thead>
+        <tbody>
+    {% for task in activeTasks %}
+        <tr>
+            <td>{{ task.ScheduledTask.getId }}</td>
+            <td>{{ task.ScheduledTask.getDayTs }}</td>
+            <td>{{ task.ScheduledTask.getTbId }}</td>
+            <td>{{ task.ScheduledTask.getValueName }}</td>
+            <td>{{ task.ScheduledTask.getValueLimit }}</td>
+            <td>{{ task.ScheduledTask.getValueUsed }}</td>
+            <td>
+                <div style="font-size: 0.7em">
+                    <table>
+                    {% set totalUsed, totalLeft = 0, 0 %}
+                    {% for scheduleItemKey, scheduleItem in task.Schedule %}
+                        {% if scheduleItem.isProcessed == false %}
+                            {% set totalLeft = totalLeft + scheduleItem.value  %}
+                        {% else %}
+                            {% set totalUsed = totalUsed + scheduleItem.value %}
+                        {% endif %}
+                        <tr {{ scheduleItem.isProcessed == true ? 'style="background-color: #eff9d6"' }} >
+                            <td>{{ scheduleItemKey }}</td>
+                            <td>{{ scheduleItem.value }}</td>
+                            <td>{{ scheduleItem.isProcessed == false ? "<b>false</b>" : "<b>true</b>" }}</td>                            
+                        </tr>
+                    {% endfor %}
+                    </table>
+                    <hr>
+                    <div style='text-align: center'>
+                        <span>Used: {{ totalUsed }}</span> | Left: <span>{{ totalLeft }}</span>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+    
+    <form action="{{ path('perform_scheduled_tasks') }}" method="post" name="execute_all_schedules">
+        <input type="submit" value="Execute all Schedules" align="right" style="border-width: 1px; border-style: solid; margin: 15px"/>
+    </form>
+    
+{% endblock %}
